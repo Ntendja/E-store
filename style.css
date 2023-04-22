@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.logoState {
+    display: flex;
+    justify-content: space-between;
+    margin: 60px;
+    padding: 30px;
+}
+
+#new-category {
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    background: mediumpurple;
+}
+
+#new-category:active {
+    color: white;
+    background: rebeccapurple;
+}
+
+#new-category:hover {
+    color: white;
+    background: rebeccapurple;
+}
+
+.heroes {
+    text-align: center;
+    background-color: rebeccapurple;
+    padding: 50px;
+    text-transform: capitalize;
+}
+
+.cardDisplay {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, auto));
+    grid-gap: 50px;
+    margin: 50px;
+    padding: 20px;
+    border: 1px solid black;
+
+}
+
+.card {
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px 2px darkgray;
+}
+
+.card img {
+    width: auto;
+    height: 100%;
+}
