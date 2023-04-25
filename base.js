@@ -30,6 +30,32 @@ function formSubmit(e) {
 
 
 
+
+
+const btnNewCategory = document.querySelector("#new-category");
+btnNewCategory.addEventListener("click", addCategory);
+
+function addCategory() {
+    let allCategory = document.querySelector("#all-category");
+    let displayCategory = document.querySelector("#display-category");
+    let sectionNewCategory = document.querySelector("#section-new-category");
+
+    allCategory.style.display = 'none';
+    displayCategory.style.display = 'none';
+    sectionNewCategory.style.display = 'block'
+}
+
+
+
+
+
+
+
+
+
+
+
+
 // create form
 /*
 const createForm = () =>{
