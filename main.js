@@ -22,7 +22,7 @@ async function getSingleCategory(categoryID) {
 async function displayAllCategory() {
     allCategory = await getCategory();
 
-    console.log(allCategory);
+   // console.log(allCategory);
     createCategoryCard();
 }
 displayAllCategory();
@@ -43,7 +43,13 @@ async function displaySingleCategory(e) {
 
 }
 
+// function delete category
 
+function deleteCategory(e){
+    e.target.parentElement.parentElement.remove();
+    console.log(allCategory);
+
+}
 
 
 // create category card
@@ -61,15 +67,40 @@ const createCategoryCard = () => {
 
         const h3 = document.createElement("h3");
         h3.textContent = item.name;
-        const btnCategory = document.createElement("button");
-        btnCategory.id = 'view-category';
-        btnCategory.textContent = `view`;
-        btnCategory.setAttribute("data-id", item.id);
-        btnCategory.addEventListener("click", displaySingleCategory);
+
+        const divBtn = document.createElement("div");
+        divBtn.classList.add("div-btn-category");
+        // btn view category
+        const btnCategoryView = document.createElement("button");
+        btnCategoryView.id = 'view-category';
+        btnCategoryView.textContent = `view`;
+        btnCategoryView.setAttribute("data-id", item.id);
+        btnCategoryView.addEventListener("click", displaySingleCategory);
+
+// btn delete category
+        const btnCategoryDelete = document.createElement("button");
+        btnCategoryDelete.id = 'view-delete';
+        btnCategoryDelete.textContent = `delete`;
+        btnCategoryDelete.setAttribute("data-id", item.id);
+       btnCategoryDelete.addEventListener("click", deleteCategory);
+
+        // update category
+        const btnCategoryUpdate = document.createElement("button");
+        btnCategoryUpdate.id = 'view-update';
+        btnCategoryUpdate.textContent = `update`;
+        btnCategoryUpdate.setAttribute("data-id", item.id);
+      //  btnCategoryUpdate.addEventListener("click", updateCategory);
+
+
+
+        divBtn.appendChild(btnCategoryView);
+        divBtn.appendChild(btnCategoryDelete);
+        divBtn.appendChild(btnCategoryUpdate);
+
 
         card.appendChild(img);
         card.appendChild(h3);
-        card.appendChild(btnCategory);
+        card.appendChild(divBtn);
 
         categoryCard.appendChild(card);
 

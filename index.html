@@ -18,7 +18,7 @@
             <!--logo-->
             <div class="logoState">
                 <p class="logo">Logo</p>
-                <button type="submit" id="new-category">New category</button>
+                <button id="new-category">New category</button>
             </div>
 
             <!--heroes-->
@@ -27,18 +27,21 @@
                 <p>schön, dass Sie da sind</p>
             </div>
         </div>
-
     </nav>
 
     <!--grid card display-->
-    <div style="display: block" id="all-category">
+    <div style="display: none" id="all-category">
         <div class="cardDisplay">
             <!--card
             <div class="card">
                 <img src="./img/orange.svg" alt="orange">
                 <h3>Name</h3>
-        <button  id="view-category">view</button>
 
+                <div class="div-btn-category">
+        <button  id="view-category">view</button>
+        <button  id="delete-category">delete</button>
+        <button  id="update-category">update</button>
+</div>
             </div>
             -->
         </div>
@@ -53,10 +56,27 @@
                 <p>price</p>
                 <p>description</p>
                <button  id="view-product">view</button>
+               <button  id="delete-product">delete</button>
+               <button  id="update-product">update</button>
+
 
             </div>
             -->
         </div>
+    </section>
+
+    <!--create a new category form-->
+    <section style="display: block" id="section-new-category">
+
+        <h2>Create a new Category</h2>
+        <form id="new-category-form" method="POST">
+            <label>Name</label>
+            <input type="text" name="name" id="new-category-name" required><br>
+            <label>Image</label>
+            <input type="image" id="image" alt="" src="">
+            <button type="submit" id="btn-submit-category">Submit</button>
+        </form>
+
     </section>
 
 </div>

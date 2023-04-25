@@ -16,6 +16,7 @@
     border-radius: 10px;
     color: white;
     background: mediumpurple;
+    cursor: pointer;
 }
 
 #new-category:active {
@@ -51,21 +52,86 @@
     border-radius: 10px;
 
 }
-.card img{
+
+.card img {
     object-fit: cover;
     width: 100%;
     height: 100%;
 }
 
-.card h3{
+.card h3 {
     margin-top: 5px;
 
 }
 
-.single-category{
+.single-category {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     grid-gap: 50px;
     margin: 50px;
     padding: 20px
+}
+
+.div-btn-category {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/*form new category css*/
+
+#section-new-category {
+    margin: 1% 25% 25% 25%;
+    text-align: center;
+    height: 500px;
+}
+
+#section-new-category h2 {
+    margin-top: 5%;
+}
+
+#new-category-form {
+    overflow: hidden;
+    padding: 1em;
+    background: #f9f9f9;
+    border: 1px solid #c1c1c1;
+    margin-top: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#new-category-form input {
+    margin-bottom: 1rem;
+    background: #fff;
+    border: 1px solid #9c9c9c;
+    width: 100%;
+    padding: 0.7em;
+}
+
+
+#new-category-form label {
+    text-align: left;
+    display: block;
+    padding: 0.5em 1.5em 0.5em 0;
+}
+
+#btn-submit-category {
+    background: mediumpurple;
+    padding: 0.7em;
+    border: 0;
+    cursor: pointer;
+    border-radius: 10px;
+    color: white;
+}
+
+#btn-submit-category:active {
+    color: white;
+    background-color: rebeccapurple;
+}
+
+#btn-submit-category:hover {
+    color: white;
+    background-color: rebeccapurple;
 }
