@@ -7,8 +7,8 @@
 .logoState {
     display: flex;
     justify-content: space-between;
-    margin: 60px;
-    padding: 30px;
+    margin: 10px;
+    padding: 10px;
 }
 
 #new-category {
@@ -28,6 +28,25 @@
     color: white;
     background: rebeccapurple;
 }
+
+#new-product {
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    background: mediumpurple;
+    cursor: pointer;
+}
+
+#new-product:active {
+    color: white;
+    background: rebeccapurple;
+}
+
+#new-product:hover {
+    color: white;
+    background: rebeccapurple;
+}
+
 
 .heroes {
     text-align: center;
@@ -134,4 +153,28 @@
 #btn-submit-category:hover {
     color: white;
     background-color: rebeccapurple;
+}
+
+/*css for product*/
+
+#product-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 30px;
+    padding: 20px;
+    justify-items: center;
+}
+
+#product-img {
+    box-shadow: 2px 2px 2px 2px lightgray;
+    width: 250px;
+    align-items: center;
+
+}
+#product-details p{
+    padding: 15px;
+}
+#product-details p:nth-child(2){
+  color: red;
 }

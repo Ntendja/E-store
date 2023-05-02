@@ -6,6 +6,10 @@ async function displaySingleCategory(e) {
     let allCategory = document.querySelector("#all-category");
     let displayCategory = document.querySelector("#display-category");
 
+    let addNewCategory = document.querySelector("#new-category");
+    let addNewProduct = document.querySelector("#new-product");
+
+
     const id = +e.target.dataset.id;
     singleCategory = await getSingleCategory(id);
 
@@ -13,6 +17,9 @@ async function displaySingleCategory(e) {
     createSingleCategory();
     allCategory.style.display = 'none';
     displayCategory.style.display = 'block';
+
+    addNewCategory.style.display = 'none';
+    addNewProduct.style.display = 'block';
 
 }
 
@@ -32,7 +39,7 @@ const createSingleCategory = () => {
         titleCard.textContent = item.title;
 
         const Price = document.createElement("p");
-        Price.textContent = item.price;
+        Price.textContent = `$ ${item.price}`;
 
         const description = document.createElement("p");
         description.textContent = item.description;
@@ -45,6 +52,7 @@ const createSingleCategory = () => {
         viewProductBtn.id = 'view-product';
         viewProductBtn.textContent = `view`;
         viewProductBtn.setAttribute("data-id", item.id);
+        viewProductBtn.addEventListener("click", viewProduct);
 
         //delete product
         const deleteProductBtn = document.createElement("button");
