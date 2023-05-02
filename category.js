@@ -22,33 +22,17 @@ async function getSingleCategory(categoryID) {
 async function displayAllCategory() {
     allCategory = await getCategory();
 
-   // console.log(allCategory);
+    // console.log(allCategory);
     createCategoryCard();
 }
+
 displayAllCategory();
 
 
-// display single category
-async function displaySingleCategory(e) {
-    let allCategory = document.querySelector("#all-category");
-    let displayCategory = document.querySelector("#display-category");
-
-    const id = +e.target.dataset.id;
-    singleCategory = await getSingleCategory(id);
-
-    console.log(singleCategory);
-    createSingleCategory();
-    allCategory.style.display = 'none';
-    displayCategory.style.display = 'block';
-
-}
-
 // function delete category
-
-function deleteCategory(e){
+function deleteCategory(e) {
     e.target.parentElement.parentElement.remove();
     console.log(allCategory);
-
 }
 
 
@@ -82,19 +66,18 @@ const createCategoryCard = () => {
         btnCategoryDelete.id = 'view-delete';
         btnCategoryDelete.textContent = `delete`;
         btnCategoryDelete.setAttribute("data-id", item.id);
-       btnCategoryDelete.addEventListener("click", deleteCategory);
+        btnCategoryDelete.addEventListener("click", deleteCategory);
 
         // update category
         const btnCategoryUpdate = document.createElement("button");
         btnCategoryUpdate.id = 'view-update';
         btnCategoryUpdate.textContent = `update`;
         btnCategoryUpdate.setAttribute("data-id", item.id);
-      //  btnCategoryUpdate.addEventListener("click", updateCategory);
-
+        //  btnCategoryUpdate.addEventListener("click", updateCategory);
 
 
         divBtn.appendChild(btnCategoryView);
-        divBtn.appendChild(btnCategoryDelete);
+        divBtn.appendChild(btnCategoryDelete); 
         divBtn.appendChild(btnCategoryUpdate);
 
 
@@ -107,39 +90,48 @@ const createCategoryCard = () => {
     })
 }
 
-//grid single category
-const createSingleCategory = () => {
-    let singleCategoryDisplay = document.querySelector(".single-category");
-    singleCategory.forEach(item => {
 
-        const card = document.createElement("div");
-        card.classList.add("card");
+// new category with js
+const form = document.querySelector("#new-category-form");
+form.addEventListener("submit", formSubmit);
 
-        const img = document.createElement("img");
-        img.setAttribute("src", item.images);
+function formSubmit(e) {
+    e.preventDefault();
 
-        const titleCard = document.createElement("h3");
-        titleCard.textContent = item.title;
+    const formData = new FormData();
+    formData.append(
+        'name',
+        document.querySelector('input[name="name"]').value
+    )
+    formData.append(
+        'image',
+        document.querySelector('input[name="image"]').value
+    )
+    fetch("https://api.escuelajs.co/api/v1/categories/",
+        {
+            method: "POST",
+            body: formData
+        })
+        .then(response => console.log(response))
+        .catch(error => console.log(error))
 
-        const Price = document.createElement("p");
-        Price.textContent = item.price;
+    alert("The form was submitted");
 
-        const description = document.createElement("p");
-        description.textContent = item.description;
-
-        const btnProduct = document.createElement("button");
-        btnProduct.id = 'view-product';
-        btnProduct.textContent = `view`;
-        btnProduct.setAttribute("data-id", item.id);
-        //btnProduct.addEventListener("click", viewProduct);
-
-        card.appendChild(img);
-        card.appendChild(titleCard);
-        card.appendChild(Price);
-        card.appendChild(description);
-        card.appendChild(btnProduct);
-
-        singleCategoryDisplay.appendChild(card);
-
-    })
 }
+
+
+//setting btn new category
+const btnNewCategory = document.querySelector("#new-category");
+btnNewCategory.addEventListener("click", addCategory);
+
+function addCategory() {
+    let allCategory = document.querySelector("#all-category");
+    let displayCategory = document.querySelector("#display-category");
+    let sectionNewCategory = document.querySelector("#section-new-category");
+
+    allCategory.style.display = 'none';
+    displayCategory.style.display = 'none';
+    sectionNewCategory.style.display = 'block'
+}
+
+
