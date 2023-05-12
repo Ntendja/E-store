@@ -43,30 +43,11 @@ const createCategoryCard = () => {
        img.setAttribute("data-id", item.id);
         img.addEventListener("click", displaySingleCategory);
 
-
         const h3 = document.createElement("h3");
         h3.textContent = item.name;
 
-       /* const divBtn = document.createElement("div");
-        divBtn.classList.add("div-btn-category");*/
-
-        // btn view category
-     /* const btnCategoryView = document.createElement("button");
-        btnCategoryView.id = 'view-category';
-        btnCategoryView.textContent = `view`;
-        btnCategoryView.setAttribute("data-id", item.id);
-        btnCategoryView.addEventListener("click", displaySingleCategory);*/
-
-
-
-
-
-       // divBtn.appendChild(btnCategoryView);
-
-
         card.appendChild(img);
         card.appendChild(h3);
-       // card.appendChild(divBtn);
 
         categoryCard.appendChild(card);
 

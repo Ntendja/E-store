@@ -34,6 +34,9 @@ const createSingleCategory = () => {
 
         const img = document.createElement("img");
         img.setAttribute("src", item.images);
+        img.id = 'product-id';
+        img.setAttribute("data-id", item.id);
+        img.addEventListener("click", viewProduct);
 
         const titleCard = document.createElement("h3");
         titleCard.textContent = item.title;
@@ -41,40 +44,9 @@ const createSingleCategory = () => {
         const Price = document.createElement("p");
         Price.textContent = `$ ${item.price}`;
 
-        const description = document.createElement("p");
-        description.textContent = item.description;
-
-        const divBtnProduct = document.createElement("div");
-        divBtnProduct.id = `div-btn-product`;
-
-        //view product
-        const viewProductBtn = document.createElement("button");
-        viewProductBtn.id = 'view-product';
-        viewProductBtn.textContent = `view`;
-        viewProductBtn.setAttribute("data-id", item.id);
-        viewProductBtn.addEventListener("click", viewProduct);
-
-        //delete product
-        const deleteProductBtn = document.createElement("button");
-        deleteProductBtn.id = 'delete-product';
-        deleteProductBtn.textContent = `delete`;
-        deleteProductBtn.setAttribute("data-id", item.id);
-
-        //update product
-        const updateProductBtn = document.createElement("button");
-        updateProductBtn.id = `update-product`;
-        updateProductBtn.textContent = `update`;
-        updateProductBtn.setAttribute("data-id", item.id);
-
-        divBtnProduct.appendChild(viewProductBtn);
-        divBtnProduct.appendChild(deleteProductBtn);
-        divBtnProduct.appendChild(updateProductBtn);
-
         card.appendChild(img);
         card.appendChild(titleCard);
         card.appendChild(Price);
-        card.appendChild(description);
-        card.appendChild(divBtnProduct);
 
         singleCategoryDisplay.appendChild(card);
 

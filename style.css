@@ -130,19 +130,25 @@
 
 }
 
+/*start section new category*/
+
 .single-category {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    grid-gap: 50px;
-    margin: 50px;
-    padding: 20px
+    padding: 20px;
+    grid-gap: 10px;
+    margin: 50px 150px 10px 150px;
+    justify-self: center;
+    align-self: center;
+    justify-items: center;
 }
 
-.div-btn-category {
-    display: flex;
-    justify-content: space-between;
+.single-category p{
+    padding-top: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: orangered;
 }
-
 
 /*form new category css*/
 
@@ -225,3 +231,4 @@
 #product-details p:nth-child(2){
   color: red;
 }
+
