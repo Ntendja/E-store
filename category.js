@@ -2,7 +2,6 @@ const fetchUrl = "https://api.escuelajs.co/api/v1";
 
 // save all category in array
 let allCategory = [];
-let singleCategory = [];
 
 // get all category
 async function getCategory() {
@@ -11,11 +10,7 @@ async function getCategory() {
 }
 
 
-// get single category
-async function getSingleCategory(categoryID) {
-    const response = await fetch(`${fetchUrl}/categories/${categoryID}/products`)
-    return await response.json();
-}
+
 
 
 // display category card
@@ -56,6 +51,8 @@ const createCategoryCard = () => {
 
 
 // new category with js
+
+/*
 const form = document.querySelector("#new-category-form");
 form.addEventListener("submit", formSubmit);
 
@@ -82,10 +79,10 @@ function formSubmit(e) {
     alert("The form was submitted");
 
 }
-
+*/
 
 //setting btn new category
-const btnNewCategory = document.querySelector("#new-category");
+/*const btnNewCategory = document.querySelector("#new-category");
 btnNewCategory.addEventListener("click", addCategory);
 
 function addCategory() {
@@ -98,4 +95,4 @@ function addCategory() {
     sectionNewCategory.style.display = 'block'
 }
 
-
+*/
