@@ -21,19 +21,11 @@ async function getSingleCategory(categoryID) {
 // display category card
 async function displayAllCategory() {
     allCategory = await getCategory();
-
     // console.log(allCategory);
     createCategoryCard();
 }
-
 displayAllCategory();
 
-
-// function delete category
-function deleteCategory(e) {
-    e.target.parentElement.parentElement.remove();
-    console.log(allCategory);
-}
 
 
 // create category card
@@ -47,43 +39,34 @@ const createCategoryCard = () => {
 
         const img = document.createElement("img");
         img.setAttribute("src", item.image);
-        img.setAttribute("alt", item.name);
+       img.id = 'category-id';
+       img.setAttribute("data-id", item.id);
+        img.addEventListener("click", displaySingleCategory);
+
 
         const h3 = document.createElement("h3");
         h3.textContent = item.name;
 
-        const divBtn = document.createElement("div");
-        divBtn.classList.add("div-btn-category");
+       /* const divBtn = document.createElement("div");
+        divBtn.classList.add("div-btn-category");*/
+
         // btn view category
-        const btnCategoryView = document.createElement("button");
+     /* const btnCategoryView = document.createElement("button");
         btnCategoryView.id = 'view-category';
         btnCategoryView.textContent = `view`;
         btnCategoryView.setAttribute("data-id", item.id);
-        btnCategoryView.addEventListener("click", displaySingleCategory);
-
-// btn delete category
-        const btnCategoryDelete = document.createElement("button");
-        btnCategoryDelete.id = 'view-delete';
-        btnCategoryDelete.textContent = `delete`;
-        btnCategoryDelete.setAttribute("data-id", item.id);
-        btnCategoryDelete.addEventListener("click", deleteCategory);
-
-        // update category
-        const btnCategoryUpdate = document.createElement("button");
-        btnCategoryUpdate.id = 'view-update';
-        btnCategoryUpdate.textContent = `update`;
-        btnCategoryUpdate.setAttribute("data-id", item.id);
-        //  btnCategoryUpdate.addEventListener("click", updateCategory);
+        btnCategoryView.addEventListener("click", displaySingleCategory);*/
 
 
-        divBtn.appendChild(btnCategoryView);
-        divBtn.appendChild(btnCategoryDelete); 
-        divBtn.appendChild(btnCategoryUpdate);
+
+
+
+       // divBtn.appendChild(btnCategoryView);
 
 
         card.appendChild(img);
         card.appendChild(h3);
-        card.appendChild(divBtn);
+       // card.appendChild(divBtn);
 
         categoryCard.appendChild(card);
 
@@ -107,7 +90,7 @@ function formSubmit(e) {
         'image',
         document.querySelector('input[name="image"]').value
     )
-    fetch("https://api.escuelajs.co/api/v1/categories/",
+    fetch(`${fetchUrl}/categories/`,
         {
             method: "POST",
             body: formData

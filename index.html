@@ -7,19 +7,46 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="style.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-    <title>E-store</title>
 </head>
 <body>
 
 <div class="contain">
     <nav>
         <div class="subcontainer">
-            <!--logo-->
-            <div class="logoState">
-                <p class="logo">Logo</p>
+            <!--navbar-->
+            <div class="navBar">
+                <div>
+                    <p class="logo">Logo</p>
+                </div>
+
+                <div>
+                    <div class="wrap">
+                        <div class="search">
+
+                            <input type="text" class="searchTerm" placeholder="Search...">
+
+                            <button type="submit" class="searchButton">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div>
+                    <i class="fa fa-cart-plus fa-2x fa-red" style="color: rebeccapurple;" id="warenkorb"></i>
+                </div>
+
+
+
+                <!--
+                <div>
                 <button id="new-category">New category</button>
                 <button id="new-product" style="display: none">New product</button>
+                </div>
+                -->
 
             </div>
 
@@ -41,13 +68,14 @@
 
                 <div class="div-btn-category">
         <button  id="view-category">view</button>
-        <button  id="delete-category">delete</button>
-        <button  id="update-category">update</button>
-</div>
+                </div>
             </div>
             -->
         </div>
     </div>
+
+
+
 
     <section style="display: none" id="display-category">
         <div class="single-category">
