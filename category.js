@@ -1,17 +1,21 @@
 const fetchUrl = "https://api.escuelajs.co/api/v1";
 
-// save all category in array
-let allCategory = [];
-
 // get all category
 async function getCategory() {
     const response = await fetch(`${fetchUrl}/categories`)
     return await response.json();
 }
 
+async function getCategoryProducts(categoryID) {
+    const response = await fetch(`${fetchUrl}/categories/${categoryID}/products`)
+    return await response.json();
+}
 
 
+let allCategory = [];
+let products = [];
 
+let mainPage = document.querySelector(".mainPage");
 
 // display category card
 async function displayAllCategory() {
@@ -19,14 +23,14 @@ async function displayAllCategory() {
     // console.log(allCategory);
     createCategoryCard();
 }
-displayAllCategory();
 
+displayAllCategory();
 
 
 // create category card
 const createCategoryCard = () => {
 
-    let categoryCard = document.querySelector(".cardDisplay");
+    let categoryCard = document.querySelector(".categoryDisplay");
 
     allCategory.forEach(item => {
         const card = document.createElement("div");
@@ -34,9 +38,9 @@ const createCategoryCard = () => {
 
         const img = document.createElement("img");
         img.setAttribute("src", item.image);
-       img.id = 'category-id';
-       img.setAttribute("data-id", item.id);
-        img.addEventListener("click", displaySingleCategory);
+        img.id = 'category-id';
+        img.setAttribute("data-id", item.id);
+        img.addEventListener("click", displayProducts);
 
         const h3 = document.createElement("h3");
         h3.textContent = item.name;
@@ -49,50 +53,7 @@ const createCategoryCard = () => {
     })
 }
 
-
-// new category with js
-
-/*
-const form = document.querySelector("#new-category-form");
-form.addEventListener("submit", formSubmit);
-
-function formSubmit(e) {
-    e.preventDefault();
-
-    const formData = new FormData();
-    formData.append(
-        'name',
-        document.querySelector('input[name="name"]').value
-    )
-    formData.append(
-        'image',
-        document.querySelector('input[name="image"]').value
-    )
-    fetch(`${fetchUrl}/categories/`,
-        {
-            method: "POST",
-            body: formData
-        })
-        .then(response => console.log(response))
-        .catch(error => console.log(error))
-
-    alert("The form was submitted");
-
+// clean Dom
+function renderDom() {
+    mainPage.innerHTML = "";
 }
-*/
-
-//setting btn new category
-/*const btnNewCategory = document.querySelector("#new-category");
-btnNewCategory.addEventListener("click", addCategory);
-
-function addCategory() {
-    let allCategory = document.querySelector("#all-category");
-    let displayCategory = document.querySelector("#display-category");
-    let sectionNewCategory = document.querySelector("#section-new-category");
-
-    allCategory.style.display = 'none';
-    displayCategory.style.display = 'none';
-    sectionNewCategory.style.display = 'block'
-}
-
-*/

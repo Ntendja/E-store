@@ -26,7 +26,7 @@
                     <div class="wrap">
                         <div class="search">
 
-                            <input type="text" class="searchTerm" placeholder="Search...">
+                            <input type="text" class="searchInput" placeholder="Search...">
 
                             <button type="submit" class="searchButton">
                                 <i class="fa fa-search"></i>
@@ -39,7 +39,6 @@
                 <div>
                     <i class="fa fa-cart-plus fa-2x fa-red" style="color: rebeccapurple;" id="warenkorb"></i>
                 </div>
-
 
 
                 <!--
@@ -59,70 +58,70 @@
         </div>
     </nav>
 
-    <!--grid card display-->
-    <div style="display: block" id="all-category">
-        <div class="cardDisplay">
-            <!--card
-            <div class="card">
-                <img src="./img/orange.svg" alt="orange" id="product-id">
-                <h3>Name</h3>
+    <div class="mainPage">
+
+        <!--grid card display-->
+        <div style="display: block" id="all-category">
+            <div class="categoryDisplay">
+                <!--card
+                <div class="card">
+                    <img src="./img/orange.svg" alt="orange" id="product-id">
+                    <h3>Name</h3>
+                </div>
+                -->
             </div>
-            -->
         </div>
-    </div>
 
 
+        <section style="display: none" id="displayCategoryProducts">
+            <div class="allCategoryProducts">
+                <!--
+                <div class="card">
+                    <img src=" " alt="">
+                    <h3>title</h3>
+                    <p>price</p>
+                </div>
+                -->
+            </div>
+        </section>
 
 
-    <section style="display: none" id="display-category">
-        <div class="single-category">
+        <!--create a new category form-->
+        <section style="display: none" id="section-new-category">
+
+            <h2>Create a new Category</h2>
+            <form id="new-category-form" method="POST" onsubmit="formSubmit()">
+
+                <label>Name</label>
+                <input type="text" name="name" id="new-category-name" required>
+
+                <label>Image</label>
+                <input type="image" id="image" alt="" src="">
+                <button id="btn-submit-category">Submit</button>
+            </form>
+
+        </section>
+
+        <!--display single product-->
+
+        <div id="product-section" style="display: none">
             <!--
-            <div class="card">
-                <img src=" " alt="">
-                <h3>title</h3>
-                <p>price</p>
+            <div>
+                <img src="./img/orange.svg" alt="orange" id="product-img">
+            </div>
+
+            <div id="product-details">
+                <h1>Title</h1>
+                <p>Price</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse eveni?</p>
+                <p>Category</p>
             </div>
             -->
         </div>
-    </section>
-
-
-    <!--create a new category form-->
-    <section style="display: none" id="section-new-category">
-
-        <h2>Create a new Category</h2>
-        <form id="new-category-form" method="POST" onsubmit="formSubmit()">
-
-            <label>Name</label>
-            <input type="text" name="name" id="new-category-name" required>
-
-            <label>Image</label>
-            <input type="image" id="image" alt="" src="">
-            <button id="btn-submit-category">Submit</button>
-        </form>
-
-    </section>
-
-    <!--display single product-->
-
-    <div id="product-section" style="display: none">
-        <!--
-        <div>
-            <img src="./img/orange.svg" alt="orange" id="product-img">
-        </div>
-
-        <div id="product-details">
-            <h1>Title</h1>
-            <p>Price</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse eveni?</p>
-            <p>Category</p>
-        </div>
-        -->
     </div>
-
 </div>
 <script src="category.js"></script>
-<script src="singleCategory.js"></script>
+<script src="allProducts.js"></script>
 <script src="product.js"></script>
 
 </body>
