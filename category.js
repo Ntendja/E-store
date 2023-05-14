@@ -6,7 +6,6 @@ let products = [];
 let categoryDiv = document.querySelector("#categoryDiv");
 let displayCategoryProducts = document.querySelector("#displayCategoryProducts");
 let productSection = document.querySelector("#productSection");
-let mainPage = document.querySelector(".mainPage");
 
 
 // get all category
