@@ -105,15 +105,18 @@
 
 .card {
     padding: 30px;
+    background-color: white;
     text-align: center;
+    box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 25px 0 rgba(0, 0, 0, 0.19);
     border-radius: 10px;
     width: 100%;
+    height: auto;
 
 }
 
 .card img {
     width: 100%;
-    height: auto;
+    height: 80%;
     border-radius: 20px;
 }
 /*animation image start*/
@@ -210,9 +213,9 @@
 
 /*css for product*/
 
-#product-section {
+#productSection {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     margin: 30px;
     padding: 20px;

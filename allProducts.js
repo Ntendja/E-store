@@ -1,28 +1,22 @@
 
 
-// get single category
 
 // display all category products
-
 async function displayProducts(e) {
-let allCategory = document.querySelector("#all-category");
-let displayCategoryProducts = document.querySelector("#displayCategoryProducts")
-    console.log(products);
+
 
     const id = +e.target.dataset.id;
     products = await getCategoryProducts(id);
-    console.log(products);
-
-    createProducts();
-
-    allCategory.style.display = 'none';
+   createProductsByCategory();
+    categoryDiv.style.display = 'none';
     displayCategoryProducts.style.display = 'block';
 }
 
 
 
+
 //grid single category
-const createProducts = () => {
+const createProductsByCategory = () => {
     let allCategoryProducts = document.querySelector(".allCategoryProducts");
     products.forEach(item => {
 

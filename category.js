@@ -1,5 +1,14 @@
 const fetchUrl = "https://api.escuelajs.co/api/v1";
 
+let allCategory = [];
+let products = [];
+
+let categoryDiv = document.querySelector("#categoryDiv");
+let displayCategoryProducts = document.querySelector("#displayCategoryProducts");
+let productSection = document.querySelector("#productSection");
+let mainPage = document.querySelector(".mainPage");
+
+
 // get all category
 async function getCategory() {
     const response = await fetch(`${fetchUrl}/categories`)
@@ -12,15 +21,13 @@ async function getCategoryProducts(categoryID) {
 }
 
 
-let allCategory = [];
-let products = [];
 
-let mainPage = document.querySelector(".mainPage");
+
 
 // display category card
 async function displayAllCategory() {
     allCategory = await getCategory();
-    // console.log(allCategory);
+    console.log(allCategory);
     createCategoryCard();
 }
 
@@ -53,7 +60,4 @@ const createCategoryCard = () => {
     })
 }
 
-// clean Dom
-function renderDom() {
-    mainPage.innerHTML = "";
-}
+

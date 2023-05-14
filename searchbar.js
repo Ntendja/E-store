@@ -3,13 +3,14 @@
 const searchInput = document.querySelector(".searchInput");
 const searchButton = document.querySelector(".searchButton");
 const mainPage = document.querySelector(".mainPage");
+searchButton.addEventListener("click", resultSearch);
 
-//searchButton.addEventListener("click", resultSearch);
+/*
 searchInput.addEventListener("input", async (e) =>{
-    singleCategory = getSingleCategory();
+    products = getCategoryProducts();
     const value = e.target.value.toLocaleLowerCase();
-    const filterProduct = products.filter((product) => {
-        return product.title.toLocaleLowerCase().includes(value)
+    const filterProduct = products.filter((item) => {
+        return item.title.toLocaleLowerCase().includes(value)
     })
     mainPage.innerHTML="";
 
@@ -21,28 +22,19 @@ searchInput.addEventListener("input", async (e) =>{
 
     console.log(filterProduct);
 })
+*/
 
 
+async function resultSearch() {
 
-
-
-
-
-
-
-
-
-
-
-
-async function resultSearch(e) {
-    //get product
-    const singleCategory = await getSingleCategory();
     // get input field value
     const searchTerm = searchInput.value.toLowerCase();
     console.log(searchTerm);
+    //get product
+    const categoryProducts = await getCategoryProducts();
+
     // filter product
-    const filterProduct = singleCategory.filter(item => {
+    const filterProduct = categoryProducts.filter(item => {
         return item.title.toLowerCase().includes(searchTerm);
     });
 // clean DOM
