@@ -4,12 +4,42 @@
     padding: 0;
 }
 
+.logo {
+    color: rebeccapurple;
+    font-size: x-large;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
 .navBar {
     display: flex;
     justify-content: space-around;
-    margin: 10px;
-    padding: 10px;
+    margin-bottom: 80px;
+    padding: 30px;
+    box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.13), 0 8px 25px 0 rgb(255, 255, 255);
 }
+
+.topnav{
+   display: flex;
+    cursor: pointer;
+}
+.topnav a {
+    color: rebeccapurple;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.topnav a:hover {
+    background-color: rgba(174, 154, 225, 0.31);
+    color: black;
+}
+.topnav a.active {
+    background-color: #ae9ae1;
+    color: #cdbaef;
+}
+
 
 /*Search Bar*/
 
@@ -235,16 +265,20 @@
     background-color: yellow;
 
 }
+
 #productTitle {
     grid-area: header;
 }
+
 #productPrice {
     grid-area: main;
     color: red;
 }
+
 #productDescription {
     grid-area: main;
 }
+
 #productCategory {
     grid-area: main;
 }
@@ -257,7 +291,7 @@
 
 #addToCart {
     background: mediumpurple;
-  padding: 5px;
+    padding: 5px;
     border: none;
     cursor: pointer;
     border-radius: 10px;
@@ -284,10 +318,12 @@ table {
     width: 80%;
     border-collapse: collapse;
 }
+
 th {
     background-color: rebeccapurple;
     color: white;
 }
+
 th, td {
     border: 1px solid #ddd;
     text-align: left;
@@ -295,4 +331,15 @@ th, td {
 
 
 }
-tr:hover {background-color: #d0cfe5;}
+
+/*tr:hover {background-color: #d0cfe5;}*/
+
+
+footer {
+    background-color: rebeccapurple;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    margin-top: 100px;
+
+}

@@ -18,6 +18,7 @@ async function displayProducts(e) {
 //grid single category
 const createProductsByCategory = () => {
     let allCategoryProducts = document.querySelector(".allCategoryProducts");
+
     products.forEach(item => {
 
         const card = document.createElement("div");
