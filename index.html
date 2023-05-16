@@ -37,7 +37,7 @@
 
 
                 <div>
-                    <i class="fa fa-cart-plus fa-2x fa-red" style="color: rebeccapurple;" id="warenkorb"></i>
+                    <i class="fa fa-cart-plus fa-2x " style="color: rebeccapurple;" id="cartBtn"></i>
                 </div>
 
 
@@ -57,6 +57,7 @@
             </div>
         </div>
     </nav>
+
 
     <div class="mainPage">
 
@@ -115,17 +116,49 @@
                 <p id="productPrice">Price</p>
                 <p id="productDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse eveni?</p>
                 <p id="productCategory">Category</p>
-            <button type="submit" id="addToCart"></button>
+            <p  id="addToCart">add to cart</p>
 
             </div>
             -->
         </div>
+
+
     </div>
+
+
+    <div class="filter allCategoryProducts" style="display: none">
+
+        <!--        <div class="card">-->
+        <!--            <img src=" " alt="">-->
+        <!--            <h3>title</h3>-->
+        <!--            <p>price</p>-->
+        <!--        </div>-->
+
+    </div>
+
+    <section class="viewCart" style="display: none">
+        <table id="tableCart">
+            <tr>
+                <th>name</th>
+                <th>image</th>
+                <th>category</th>
+                <th>number</th>
+                <th>price</th>
+                <th>action</th>
+            </tr>
+
+            <tr>
+                <td>Total:</td>
+            </tr>
+        </table>
+    </section>
+
 </div>
 <script src="category.js"></script>
 <script src="allProducts.js"></script>
 <script src="product.js"></script>
 <script src="searchbar.js"></script>
+<script src="addToCart.js"></script>
 
 </body>
 </html>

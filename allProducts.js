@@ -25,7 +25,7 @@ const createProductsByCategory = () => {
 
         const img = document.createElement("img");
         img.setAttribute("src", item.images);
-        img.id = 'product-id';
+       // img.id = 'product-id';
         img.setAttribute("data-id", item.id);
         img.addEventListener("click", viewProduct);
 

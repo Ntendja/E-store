@@ -1,8 +1,9 @@
-
+let currentProduct = null;
 // view product of DOM
 async function viewProduct(e) {
     let productID = +e.target.dataset.id;
     let product = products.find(item => item.id === productID);
+    currentProduct = product;
     console.log(product);
 
     categoryDiv.style.display = 'none';
@@ -10,8 +11,6 @@ async function viewProduct(e) {
     productSection.style.display = 'grid';
 createProduct(product);
 }
-
-
 
 
 
@@ -49,7 +48,7 @@ const createProduct = (item) => {
     const addToCartBtn = document.createElement("button");
     addToCartBtn.id = 'addToCart';
     addToCartBtn.textContent = `add to Cart` ;
-   // addToCartBtn.addEventListener("click", addToCart);
+    addToCartBtn.addEventListener("click", addToCart);
 
     divImage.appendChild(image);
     productDetail.appendChild(title);
