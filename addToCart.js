@@ -1,5 +1,7 @@
 let viewCart = document.querySelector(".viewCart");
 let toCartBtn = document.querySelector("#cartBtn");
+let getProductFromLocalstorage = JSON.parse(localStorage.getItem("waren"));
+let totalProduct = [];
 
 toCartBtn.addEventListener("click", displayCart);
 
@@ -8,6 +10,8 @@ function displayCart() {
     mainPage.style.display = 'none';
     filterDiv.style.display = 'none';
     viewCart.style.display = 'block';
+    createTableCart();
+    getTotalProductCost();
 }
 
 //add product in cart
@@ -29,23 +33,80 @@ function saveProductsToLocalStorage(product) {
 
 
 //Cart page with product from localstorage
-const getProductFromLocalstorage = JSON.parse(localStorage.getItem("waren"));
-if (getProductFromLocalstorage !== null) {
-    const nodes = getProductFromLocalstorage.map(item => {
 
-        return `
-        <tr>
-                    <td>${item.title}</td>
-                    <td><img src="${item.images[0]}" alt="${item.title}" width="60px" height="60px"></td>
-                    <td>${item.category.name}</td>
-                    <td>${item.price}€</td>
-                     <td><i class="fa fa-trash" style="color: red" onclick="deleteProduct('${item.title}')"></i></td>
+const createTableCart = (item) => {
+    let tableCart = document.querySelector("#tableCart");
+    let tableBody = document.querySelector("#tableCartBody");
 
-        </tr>
-        `
-    });
-    let tableCart = document.getElementById("tableCart");
-    tableCart.innerHTML += nodes.join("");
+    getProductFromLocalstorage.forEach(item => {
+        const tableRow = document.createElement("tr");
+        const td_title = document.createElement("td");
+        td_title.textContent = item.title;
+        const td_img = document.createElement(("td"));
+        const img = document.createElement("img");
+        img.addEventListener("click", viewProduct);
+        img.src = item.images[0];
+        img.style.width = '60px';
+        img.style.height = '60px';
+
+        td_img.appendChild(img);
+
+        const td_category = document.createElement("td");
+        td_category.textContent = item.category.name;
+
+        const td_price = document.createElement("td");
+        td_price.textContent = item.price;
+
+        const td_btnDelete = document.createElement("td");
+        const iconDelete = document.createElement("i");
+        iconDelete.classList.add("fa", "fa-trash");
+        iconDelete.style.color = 'red';
+        iconDelete.setAttribute("data-id", item.id);
+         iconDelete.addEventListener("click", deleteProduct);
+
+        td_btnDelete.appendChild(iconDelete);
+
+        tableRow.appendChild(td_title);
+        tableRow.appendChild(td_img);
+        tableRow.appendChild(td_category);
+        tableRow.appendChild(td_price);
+        tableRow.appendChild(td_btnDelete);
+        // tableCart.innerHTML += tableRow.join("");
+        tableBody.prepend(tableRow);
+    })
+
+}
+
+
+//btn delete
+function deleteProduct(e) {
+    let id = +e.target.dataset.id;
+    getProductFromLocalstorage = getProductFromLocalstorage.filter(item => item.id !== id);
+    localStorage.setItem("waren", JSON.stringify(getProductFromLocalstorage));
+    displayCart();
+}
+
+// //delete product in localstorage
+//
+// function deleteProductInLocaleStorage(id) {
+//     if(getProductFromLocalstorage) {
+//         getProductFromLocalstorage = getProductFromLocalstorage.filter(item => item.id != id);
+//         localStorage.setItem('waren'. JSON.stringify(getProductFromLocalstorage));
+//
+//     }
+// }
+// deleteProductInLocaleStorage();
+
+
+
+// total products cost
+
+function getTotalProductCost() {
+    return totalProduct.reduce((acc, item) => {
+        acc += +item.value;
+return acc;
+    }, 0);
+
 }
 
 
@@ -54,28 +115,3 @@ if (getProductFromLocalstorage !== null) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-// //delete product in Cart page
-// function deleteProduct(item) {
-//     removeProduct(item);
-// }
-//
-// //delete array product in localstorage
-// function removeProduct(title) {
-//     let warenkorb = JSON.parse(localStorage.getItem("waren"))
-//
-//     if (warenkorb) {
-//         warenkorb = warenkorb.filter(item => item.title != title);
-//         localStorage.setItem('waren', JSON.stringify(warenkorb));
-//     }
-// }
