@@ -244,7 +244,7 @@
 
 /*css for product*/
 
-#productSection {
+.productSection {
     display: grid;
     grid-template-areas:
   '...  menu header   sidebar'
@@ -256,8 +256,7 @@
     width: 80%;
 
 }
-
-#product-img {
+.product-img {
     grid-area: menu;
     box-shadow: 2px 2px 2px 2px lightgray;
     width: 100%;
@@ -266,30 +265,30 @@
 
 }
 
-#productTitle {
+.productTitle {
     grid-area: header;
 }
 
-#productPrice {
+.productPrice {
     grid-area: main;
     color: red;
 }
 
-#productDescription {
+.productDescription {
     grid-area: main;
 }
 
-#productCategory {
+.productCategory {
     grid-area: main;
 }
 
-#product-details p {
+.product-details p {
     padding: 5px;
     align-items: center;
 }
 
 
-#addToCart {
+.addToCart {
     background: mediumpurple;
     padding: 5px;
     border: none;
@@ -299,12 +298,12 @@
     margin-top: 20px;
 }
 
-#addToCart:active {
+.addToCart:active {
     color: white;
     background-color: rebeccapurple;
 }
 
-#addToCart:hover {
+.addToCart:hover {
     color: white;
     background-color: rebeccapurple;
 }

@@ -5,7 +5,8 @@ let products = [];
 
 let categoryDiv = document.querySelector("#categoryDiv");
 let displayCategoryProducts = document.querySelector("#displayCategoryProducts");
-let productSection = document.querySelector("#productSection");
+let productSection = document.querySelector(".productSection");
+const mainPage = document.querySelector(".mainPage");
 
 
 // get all category
@@ -14,13 +15,11 @@ async function getCategory() {
     return await response.json();
 }
 
+//get products by category
 async function getCategoryProducts(categoryID) {
     const response = await fetch(`${fetchUrl}/categories/${categoryID}/products`)
     return await response.json();
 }
-
-
-
 
 
 // display category card
@@ -58,5 +57,6 @@ const createCategoryCard = () => {
 
     })
 }
+
 
 

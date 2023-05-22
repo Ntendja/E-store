@@ -15,7 +15,7 @@
 <div class="contain">
 
     <nav>
-        <div >
+        <div>
             <!--navbar-->
             <div class="navBar">
                 <div>
@@ -108,18 +108,18 @@
 
         <!--display single product-->
 
-        <div id="productSection" style="display: none">
+        <div class="productSection" style="display: none">
             <!--
             <div>
-                <img src="./img/orange.svg" alt="orange" id="product-img">
+                <img src="./img/orange.svg" alt="orange" class="product-img">
             </div>
 
-            <div id="product-details">
-                <h1 id="productTitle">Title</h1>
-                <p id="productPrice">Price</p>
-                <p id="productDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse eveni?</p>
-                <p id="productCategory">Category</p>
-            <p  id="addToCart">add to cart</p>
+            <div class="product-details">
+                <h1 class="productTitle">Title</h1>
+                <p class="productPrice">Price</p>
+                <p class="productDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse eveni?</p>
+                <p class="productCategory">Category</p>
+            <p  class="addToCart">add to cart</p>
 
             </div>
             -->
@@ -139,10 +139,27 @@
 
     </div>
 
+    <div class="filteredProductGrid productSection " style="display: none">
+        <!--
+        <div>
+            <img src="./img/orange.svg" alt="orange" class="product-img">
+        </div>
+
+        <div class="product-details">
+            <h1 class="productTitle">Title</h1>
+            <p class="productPrice">Price</p>
+            <p class="productDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse eveni?</p>
+            <p class="productCategory">Category</p>
+        <p  class="addToCart">add to cart</p>
+
+        </div>
+        -->
+    </div>
+
     <section class="viewCart" style="display: none">
         <table id="tableCart">
             <thead>
-            <tr >
+            <tr>
                 <th>name</th>
                 <th>image</th>
                 <th>category</th>
@@ -151,9 +168,9 @@
             </tr>
             </thead>
             <tbody id="tableCartBody">
-                <tr>
-                    <td>Total:</td>
-                </tr>
+            <tr>
+                <td>Total:</td>
+            </tr>
             </tbody>
         </table>
     </section>
@@ -163,6 +180,7 @@
 <script src="allProducts.js"></script>
 <script src="product.js"></script>
 <script src="searchbar.js"></script>
+<script src="filteredProduct.js"></script>
 <script src="addToCart.js"></script>
 
 </body>
