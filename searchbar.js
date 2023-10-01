@@ -1,29 +1,23 @@
+let filter;
+
+let searchInput = document.querySelector(".searchInput");
+let searchButton = document.querySelector(".searchButton");
+let filterDiv = document.querySelector(".filter");
+
+
+searchButton.addEventListener("click", resultSearch);
+
 async function filterProducts(userInput) {
     const response = await fetch(`https://api.escuelajs.co/api/v1/products/?title=${userInput}`);
     return await response.json();
 }
 
-let searchInput = document.querySelector(".searchInput");
-let searchButton = document.querySelector(".searchButton");
-let filterDiv = document.querySelector(".filter");
-searchButton.addEventListener("click", resultSearch);
-
-let filter;
-
 async function resultSearch() {
-    console.log("filtered before", filter);
-
     const searchTerm = searchInput.value.toLowerCase();
-    console.log(searchTerm);
-
     filter = await filterProducts(searchTerm);
-    console.log("filtered after", filter);
-
     mainPage.innerHTML = "";
     filterDiv.style.display = 'grid';
-
     filterProductGrid();
-
     searchInput.value = "";
 }
 
@@ -51,7 +45,13 @@ const filterProductGrid = () => {
 
         filterDiv.appendChild(grid);
     })
-};
+
+}
+
+
+// redirect to HomePage
+let zurStartSeite = document.querySelector('.goToHomePage');
+zurStartSeite.addEventListener('click', displayAllCategory);
 
 
 

@@ -1,4 +1,6 @@
+
 const fetchUrl = "https://api.escuelajs.co/api/v1";
+// https://api.escuelajs.co/docs#/
 
 let allCategory = [];
 let products = [];
@@ -7,7 +9,6 @@ let categoryDiv = document.querySelector("#categoryDiv");
 let displayCategoryProducts = document.querySelector("#displayCategoryProducts");
 let productSection = document.querySelector(".productSection");
 const mainPage = document.querySelector(".mainPage");
-
 
 // get all category
 async function getCategory() {

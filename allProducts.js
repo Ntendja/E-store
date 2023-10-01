@@ -1,33 +1,36 @@
-// display all category products
-async function displayProducts(e) {
+let allProducts;
+let allProductDiv = document.querySelector(".allProduct");
+let showAllProduct = document.querySelector('#showAllProduct');
+showAllProduct.addEventListener('click', displayAllProducts);
 
-    categoryDiv.innerHTML = "";
-    const id = +e.target.dataset.id;
-    products = await getCategoryProducts(id);
-    createProductsByCategory();
-    // categoryDiv.style.display = 'none';
-    displayCategoryProducts.style.display = 'block';
-
-
-
-    // mainPage.appendChild(displayCategoryProducts);
+async function getAllProducts() {
+    const response = await fetch(`${fetchUrl}/products`)
+    return await response.json();
 }
 
 
-//grid single category
-const createProductsByCategory = () => {
-    let allCategoryProducts = document.querySelector(".allCategoryProducts");
+async function displayAllProducts() {
 
-    products.forEach(item => {
+    allProducts = await getAllProducts();
+    console.log(allProducts);
+    mainPage.innerHTML= "";
+    filterDiv.innerHTML= "";
+    allProductDiv.style.display = 'grid';
+    createAllProductGrid();
+}
 
-        const card = document.createElement("div");
-        card.classList.add("card");
 
-        const img = document.createElement("img");
-        img.setAttribute("src", item.images);
-        // img.id = 'product-id';
-        img.setAttribute("data-id", item.id);
-        img.addEventListener("click", viewProduct);
+
+const createAllProductGrid = () => {
+
+    allProducts.forEach(item => {
+        const allProductCard = document.createElement("div");
+        allProductCard.classList.add("card");
+
+        const imgProduct = document.createElement("img");
+        imgProduct.setAttribute("src", item.images[0]);
+        imgProduct.setAttribute("data-id", item.id);
+        imgProduct.addEventListener("click", viewProduct);
 
         const titleCard = document.createElement("h3");
         titleCard.textContent = item.title;
@@ -35,17 +38,17 @@ const createProductsByCategory = () => {
         const Price = document.createElement("p");
         Price.textContent = `$ ${item.price}`;
 
-        card.appendChild(img);
-        card.appendChild(titleCard);
-        card.appendChild(Price);
+        // let category = document.createElement("p");
+        // category.textContent = `Category: ${item.category.name}`;
+        // // category.classList.add("");
 
-        allCategoryProducts.appendChild(card);
+        allProductCard.appendChild(imgProduct);
+        allProductCard.appendChild(titleCard);
+        allProductCard.appendChild(Price);
+
+        allProductDiv.appendChild(allProductCard);
 
     })
 }
-
-
-
-
 
 

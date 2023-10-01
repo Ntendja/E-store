@@ -19,7 +19,7 @@
             <!--navbar-->
             <div class="navBar">
                 <div>
-                    <i class="logo">Vicky Store</i>
+                    <i class="logo goToHomePage">Vicky Store</i>
                 </div>
 
                 <div>
@@ -36,28 +36,15 @@
                 </div>
 
                 <div class="topnav">
-                    <a href="">Homepage</a>
-                    <a href="">Products</a>
-                    <a href="">Categories</a>
+                    <a href="" class="goToHomePage">Homepage</a>
+<!--                    <a href="" id="showAllProduct">Products</a>-->
+                    <a href="" class="goToHomePage">Categories</a>
                     <div>
-                        <i class="fa fa-cart-plus fa-2x " style="color: rebeccapurple;" id="cartBtn"></i>
+
+                        <i class="fa fa-cart-plus fa-2x" style="color: rebeccapurple;" id="cartBtn"></i>
                     </div>
-
                 </div>
-                <!--
-                <div>
-                <button id="new-category">New category</button>
-                <button id="new-product" style="display: none">New product</button>
-                </div>
-                -->
-
             </div>
-
-            <!--heroes-->
-            <!--            <div class="heroes">-->
-            <!--                <h2>Vicky online Shop</h2>-->
-            <!--                <p>schön, dass Sie da sind</p>-->
-            <!--            </div>-->
         </div>
     </nav>
 
@@ -66,95 +53,28 @@
 
         <!--grid card display-->
         <div style="display: block" id="categoryDiv">
-            <div class="categoryDisplay">
-                <!--card
-                <div class="card">
-                    <img src="./img/orange.svg" alt="orange" id="product-id">
-                    <h3>Name</h3>
-                </div>
-                -->
-            </div>
+            <div class="categoryDisplay"> </div>
         </div>
 
 
         <section style="display: none" id="displayCategoryProducts">
-            <div class="allCategoryProducts">
-                <!--
-                                <div class="card">
-                                    <img src=" " alt="">
-                                    <h3>title</h3>
-                                    <p>price</p>
-                                </div>
-                                -->
-            </div>
-        </section>
-
-
-        <!--create a new category form-->
-        <section style="display: none" id="section-new-category">
-
-            <h2>Create a new Category</h2>
-            <form id="new-category-form" method="POST" onsubmit="formSubmit()">
-
-                <label>Name</label>
-                <input type="text" name="name" id="new-category-name" required>
-
-                <label>Image</label>
-                <input type="image" id="image" alt="" src="">
-                <button id="btn-submit-category">Submit</button>
-            </form>
-
+            <div class="allCategoryProducts"> </div>
         </section>
 
         <!--display single product-->
-
-        <div class="productSection" style="display: none">
-            <!--
-            <div>
-                <img src="./img/orange.svg" alt="orange" class="product-img">
-            </div>
-
-            <div class="product-details">
-                <h1 class="productTitle">Title</h1>
-                <p class="productPrice">Price</p>
-                <p class="productDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse eveni?</p>
-                <p class="productCategory">Category</p>
-            <p  class="addToCart">add to cart</p>
-
-            </div>
-            -->
-        </div>
-
-
+        <div class="productSection" style="display: none"> </div>
     </div>
 
 
     <div class="filter allCategoryProducts" style="display: none">
-
-        <!--        <div class="card">-->
-        <!--            <img src=" " alt="">-->
-        <!--            <h3>title</h3>-->
-        <!--            <p>price</p>-->
-        <!--        </div>-->
-
     </div>
 
     <div class="filteredProductGrid productSection " style="display: none">
-        <!--
-        <div>
-            <img src="./img/orange.svg" alt="orange" class="product-img">
-        </div>
-
-        <div class="product-details">
-            <h1 class="productTitle">Title</h1>
-            <p class="productPrice">Price</p>
-            <p class="productDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse eveni?</p>
-            <p class="productCategory">Category</p>
-        <p  class="addToCart">add to cart</p>
-
-        </div>
-        -->
     </div>
+
+    <!--    Display all products -->
+    <div class="allProduct " style="display: none"></div>
+
 
     <section class="viewCart" style="display: none">
         <table id="tableCart">
@@ -162,14 +82,16 @@
             <tr>
                 <th>name</th>
                 <th>image</th>
-                <th>category</th>
+                <th>Quantity</th>
                 <th>price</th>
                 <th>action</th>
             </tr>
             </thead>
             <tbody id="tableCartBody">
             <tr>
-                <td>Total:</td>
+                <td onclick="getTotalProductCost()">Total:</td>
+                <td id="totalValue"></td>
+
             </tr>
             </tbody>
         </table>
@@ -177,11 +99,12 @@
 
 </div>
 <script src="category.js"></script>
-<script src="allProducts.js"></script>
+<script src="productByCategory.js"></script>
 <script src="product.js"></script>
 <script src="searchbar.js"></script>
-<script src="filteredProduct.js"></script>
+<script src="viewFilteredProduct.js"></script>
 <script src="addToCart.js"></script>
+<!--<script src="allProducts.js"></script>-->
 
 </body>
 

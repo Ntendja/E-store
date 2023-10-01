@@ -1,9 +1,11 @@
 let viewCart = document.querySelector(".viewCart");
 let toCartBtn = document.querySelector("#cartBtn");
-let getProductFromLocalstorage = JSON.parse(localStorage.getItem("waren"));
+toCartBtn.addEventListener("click", displayCart);
+
 let totalProduct = [];
 
-toCartBtn.addEventListener("click", displayCart);
+let getProductFromLocalstorage = JSON.parse(localStorage.getItem("waren"));
+
 
 //display cart page
 function displayCart() {
@@ -23,25 +25,27 @@ function addToCart() {
 //save products to localstorage
 function saveProductsToLocalStorage(product) {
     let products = JSON.parse(localStorage.getItem("waren"));
-    if(products && Array.isArray(products) && products.length > 0){
-              products.push(product)
-    }else{
+    if (products && Array.isArray(products) && products.length > 0) {
+        products.push(product)
+    } else {
         products = [product];
     }
     localStorage.setItem("waren", JSON.stringify(products));
-}
 
+}
 
 //Cart page with product from localstorage
 
 const createTableCart = (item) => {
-    let tableCart = document.querySelector("#tableCart");
+    // let tableCart = document.querySelector("#tableCart");
     let tableBody = document.querySelector("#tableCartBody");
 
     getProductFromLocalstorage.forEach(item => {
         const tableRow = document.createElement("tr");
         const td_title = document.createElement("td");
         td_title.textContent = item.title;
+        td_title.style.textAlign = 'left';
+        td_title.style.paddingLeft = '2%';
         const td_img = document.createElement(("td"));
         const img = document.createElement("img");
         img.addEventListener("click", viewProduct);
@@ -53,7 +57,8 @@ const createTableCart = (item) => {
 
         const td_category = document.createElement("td");
         td_category.textContent = item.category.name;
-
+        td_category.style.textAlign = 'left';
+        td_category.style.paddingLeft = '2%';
         const td_price = document.createElement("td");
         td_price.textContent = item.price;
 
@@ -62,7 +67,7 @@ const createTableCart = (item) => {
         iconDelete.classList.add("fa", "fa-trash");
         iconDelete.style.color = 'red';
         iconDelete.setAttribute("data-id", item.id);
-         iconDelete.addEventListener("click", deleteProduct);
+        iconDelete.addEventListener("click", deleteProduct);
 
         td_btnDelete.appendChild(iconDelete);
 
@@ -86,28 +91,21 @@ function deleteProduct(e) {
     displayCart();
 }
 
-// //delete product in localstorage
-//
-// function deleteProductInLocaleStorage(id) {
-//     if(getProductFromLocalstorage) {
-//         getProductFromLocalstorage = getProductFromLocalstorage.filter(item => item.id != id);
-//         localStorage.setItem('waren'. JSON.stringify(getProductFromLocalstorage));
-//
-//     }
-// }
-// deleteProductInLocaleStorage();
-
 
 
 // total products cost
 
 function getTotalProductCost() {
-    return totalProduct.reduce((acc, item) => {
-        acc += +item.value;
-return acc;
+    let total = totalProduct.reduce((acc, item) => {
+        acc += +item.price;
+        return acc;
     }, 0);
+    document.getElementById("totalValue").textContent = `$ ${total}`;
+    return total;
+
 
 }
+
 
 
 

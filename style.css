@@ -4,6 +4,8 @@
     padding: 0;
 }
 
+
+
 .logo {
     color: rebeccapurple;
     font-size: x-large;
@@ -134,7 +136,7 @@
 
 .card {
     padding: 30px;
-    background-color: white;
+    /*background-color: white;*/
     text-align: center;
     box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 25px 0 rgba(0, 0, 0, 0.19);
     border-radius: 10px;
@@ -146,13 +148,16 @@
 .card img {
     width: 100%;
     height: 80%;
-    border-radius: 20px;
+    border-radius: 50px;
+    border-radius: 50px;
+    padding: 30px;
+
 }
 
 /*animation image start*/
 .card img:hover {
     transition: 0.3s;
-    box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 25px 0 rgba(0, 0, 0, 0.19);
+    /*box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 25px 0 rgba(0, 0, 0, 0.19);*/
     opacity: 0.7;
     cursor: pointer;
 }
@@ -183,6 +188,17 @@
     font-weight: bold;
     color: orangered;
 }
+.allProducts{
+    display: none;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    padding: 20px;
+    grid-gap: 10px;
+    margin: 50px 150px 10px 150px;
+    justify-self: center;
+    align-self: center;
+    justify-items: center;
+}
+
 
 /*form new category css*/
 
@@ -248,7 +264,7 @@
     display: grid;
     grid-template-areas:
   '...  menu header   sidebar'
-  '...  menu main  right'
+  '...  ... main  right'
   '...  footer footer footer ';
     grid-gap: 50px;
     margin: 50px 50px 50px 150px;
@@ -260,26 +276,32 @@
     grid-area: menu;
     box-shadow: 2px 2px 2px 2px lightgray;
     width: 100%;
+    height: 80%;
     border-radius: 10px;
-    background-color: yellow;
+    /*background-color: yellow;*/
 
 }
 
 .productTitle {
     grid-area: header;
+
 }
 
 .productPrice {
     grid-area: main;
     color: red;
+    font-size: 20px;
 }
 
 .productDescription {
     grid-area: main;
+    margin-top: 10px;
 }
 
 .productCategory {
     grid-area: main;
+    font-weight: bold;
+    margin-top: 10PX;
 }
 
 .product-details p {
@@ -289,8 +311,8 @@
 
 
 .addToCart {
-    background: mediumpurple;
-    padding: 5px;
+    background: gray;
+    padding: 10px;
     border: none;
     cursor: pointer;
     border-radius: 10px;
@@ -303,15 +325,15 @@
     background-color: rebeccapurple;
 }
 
-.addToCart:hover {
-    color: white;
-    background-color: rebeccapurple;
-}
+/*.addToCart:hover {*/
+/*    color: white;*/
+/*    background-color: rebeccapurple;*/
+/*}*/
 
 /*Cart css*/
 
 table {
-    background-color: white;
+    background-color: #dae8ea;
     align-items: center;
     margin: 50px 100px 50px 100px;
     width: 80%;
@@ -325,10 +347,8 @@ th {
 
 th, td {
     border: 1px solid #ddd;
-    text-align: left;
-    padding: 8px;
-
-
+    text-align: center;
+    padding: 2px;
 }
 
 /*tr:hover {background-color: #d0cfe5;}*/
